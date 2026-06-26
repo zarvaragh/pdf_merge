@@ -1,8 +1,9 @@
-import PyPDF2
+import pypdf
 
-merger = PyPDF2.PdfFileMerger()
+writer = pypdf.PdfWriter()
 file_names = ["pdf1.pdf", "pdf2.pdf"]
 for file_name in file_names:
-    merger.append(file_name)
+    writer.append(file_name)
 
-merger.write('combined.pdf') 
+with open("combined.pdf", "wb") as out:
+    writer.write(out)
